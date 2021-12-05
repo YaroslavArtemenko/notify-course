@@ -45,7 +45,7 @@ export default {
     }
   },
   mounted() {
-    this.getNotifyLazy()
+    this.getNotify()
   },
 
   methods: {
