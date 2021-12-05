@@ -55,7 +55,7 @@ export default {
 
   computed: {
       messages () {
-        return this.$store.getters.getMessage
+        return this.$store.getters.getMessageMain
       }
   },
 
@@ -79,9 +79,9 @@ export default {
             //filter
             for (let i = 0; i < res.length; i++) {
               if (res[i].main)
-                messages.push(res[i])
-              else
                 messagesMain.push(res[i])
+              else
+                messages.push(res[i])
             }
 
             this.$store.dispatch('setMessage', messages)
