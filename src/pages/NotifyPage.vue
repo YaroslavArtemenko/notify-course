@@ -45,10 +45,17 @@ export default {
     }
   },
   mounted() {
-    this.getNotify()
+    this.getNotifyLazy()
   },
 
   methods: {
+    getNotifyLazy () {
+      this.loading = true
+      setTimeout (() => {
+        this.getNotify()
+      }, 1800)
+    },
+
     getNotify() {
       this.loading = true
       axios
