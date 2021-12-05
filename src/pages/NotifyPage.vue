@@ -29,6 +29,7 @@
 
 <script>
 
+import axios from 'axios'
 import Notify from "@/components/Notify";
 
 export default {
@@ -36,14 +37,27 @@ export default {
   components: {Notify},
   data() {
     return {
-      messages: [
-        {title: 'message 1'},
-        {title: 'message 2'},
-        {title: 'message 3'},
-        {title: 'message 4'},
-        {title: 'message 5'},
-        {title: 'message 6'},
-      ]
+      messages: []
+    }
+  },
+  mounted() {
+    this.getNotify()
+  },
+
+  methods: {
+    getNotify() {
+      this.loading = true
+      axios
+          .get('https://tocode.ru/static/_secret/courses/1/notifyApi.php/')
+          .then(response => {
+            let res = response.data.notify
+            this.messages = res
+            // console.log(res)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+          .finally(() => (this.loading = false))
     }
   }
 }
@@ -59,10 +73,10 @@ export default {
 
 .notify__wrapper {
   width: 400px;
-  background-color:#ffffff;
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 12px 22px 0 rgba(0,0,0,1);
+  box-shadow: 0 12px 22px 0 rgba(0, 0, 0, 1);
 }
 
 .notify__content {
