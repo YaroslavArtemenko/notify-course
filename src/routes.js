@@ -6,7 +6,7 @@ Vue.use(Router)
 
 // Pages
 import Home from "./pages/Home";
-import Notify from "./pages/Notify";
+import Notify from "./pages/NotifyPage";
 import NotFound from "./pages/404"
 
 // Routering
