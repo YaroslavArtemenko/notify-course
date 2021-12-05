@@ -15,9 +15,11 @@
 
           <!--          notify-->
           <div class="notify__content">
-            <Notify
-                :messages="messages"
-            ></Notify>
+            <!-- preloader -->
+            <Preloader v-if="loading" :width="90" :height="90"/>
+
+            <!-- notify -->
+            <Notify :messages="messages"></Notify>
           </div>
 
         </div>
@@ -31,12 +33,14 @@
 
 import axios from 'axios'
 import Notify from "@/components/Notify";
+import Preloader from "@/components/UI/Preloader";
 
 export default {
   name: "NotifyPage",
-  components: {Notify},
+  components: {Notify, Preloader},
   data() {
     return {
+      loading: false,
       messages: []
     }
   },
