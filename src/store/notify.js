@@ -15,7 +15,7 @@ export default {
         },
 
         loadMessages(state, payload) {
-            state.messagesMain = [...state.messages, ...payload]
+            state.messagesMain = [...state.messagesMain, ...payload]
         }
     },
 

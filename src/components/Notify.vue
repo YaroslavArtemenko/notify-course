@@ -20,7 +20,10 @@ export default {
   },
   methods: {
     loadMore () {
-      //logic
+      this.$store.dispatch('loadMessages')
+      .catch(err => {
+        console.log(err)
+      })
     }
   }
 }
